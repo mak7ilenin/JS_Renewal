@@ -53,15 +53,16 @@
                 <li></li>
                 <li></li>
             </ul>
+            <p>You have <b id="correct_counter"></b> correct answers</p>
         </div>
         
         
         <script>
-            let answers = [];
-            let examples = [];
-            document.getElementById('answers_list').style.display = 'none';
-
+            
             function question() {
+                let answers = [];
+                let examples = [];
+                let correctCounter = 0;
                 for (let i = 0; i < 5; i++) {
                     let firstNum = Math.floor(Math.random() * 9);
                     let secondNum = Math.floor(Math.random() * 9);
@@ -82,20 +83,18 @@
                         examples.push(example);
                     }
                     if(!answer) {
-                        document.getElementById('tryAgain').style.display = 'flex';
                         return;
                     }
                 }
-                let correct = 0;
                 for(key in answers) {
                     if(answers.hasOwnProperty(key)) {
                         if(answers[key]) {
-                            correct++;
+                            correctCounter++;
                         }
                     }
                 }
                 document.getElementById('answers_list').style.display = 'unset';
-                document.write('<p>You have <b>' + correct + '</b> correct answers</p>')
+                document.getElementById('correct_counter').innerText = correctCounter;
                 
                 let answerList = document.getElementsByTagName('li');
                 for(key in examples) {
@@ -104,6 +103,7 @@
                     }
                 }
             }
+            
             question();
 
             try {
