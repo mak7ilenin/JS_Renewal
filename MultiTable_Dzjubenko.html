@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MultiTable</title>
+    </head>
+
+    <body>
+        <style>
+            .btn {
+                cursor: pointer;
+                width: 200px;
+                height: 60px;
+                background-color: #ff0000;
+                font-size: 26px;
+                border-radius: 30px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+
+        <h1>Multiply table</h1>
+        <div class="btn" id="tryAgain">Try again</div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        
+        
+        <script>
+            let answers = [];
+            let examples = [];
+
+            function question() {
+                for (let i = 0; i < 5; i++) {
+                    let firstNum = Math.floor(Math.random() * 9);
+                    let secondNum = Math.floor(Math.random() * 9);
+                    firstNum == 0 ? firstNum++ : '';
+                    secondNum == 0 ? secondNum++ : '';
+                    
+                    let answer = prompt('What is ' + firstNum + ' * ' + secondNum, 0);
+                    let correct = false;
+                    if((firstNum*secondNum) == answer) {
+                        correct = true;
+                        example = firstNum + ' * ' + secondNum;
+                        answers.push(correct);
+                        examples.push(example);
+                    } else {
+                        correct = false;
+                        example = firstNum + ' * ' + secondNum;
+                        answers.push(correct);
+                        examples.push(example);
+                    }
+                    if(!answer) {
+                        document.getElementById('tryAgain').style.display = 'flex';
+                        return;
+                    }
+                }
+                let correct = 0;
+                for (let i = 0; i < answers.length; i++) {
+                    if(answers) {
+                        let ans = answers.map(ex => ex === true);
+                    }
+                }
+                document.write('<p>You have ' + correct + ' correct answers</p>')
+
+                let answerList = document.getElementsByTagName('li');
+                document.write('<p>You have ' +  + 'correct answers</p>')
+                // for (let i = 0; i < answerList.length; i++) {
+                //     // let sample = examples.filter(example => example === i);
+                //     console.log(examples.get(0));
+                //     // answerList[i].innerText = sample;
+                // }
+                for(key in examples) {
+                    if(examples.hasOwnProperty(key)) {
+                        // var value = examples[key];
+                        answerList[key].innerText = examples[key];
+                    }
+                }
+            }
+            question();
+
+            try {
+                const btn = document.getElementById('tryAgain');
+                btn.addEventListener('click', () => {
+                    question();
+                });
+            } catch (error) {
+                console.log('Can not find the button');
+            }
+
+        </script>
+    </body>
+
+</html>
