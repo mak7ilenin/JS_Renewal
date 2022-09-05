@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson-1</title>
+</head>
+<body>
+    <style>
+        .wrapper {
+            background-color: red;
+            width: 80%;
+            height: 700px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 50px;
+        }
+    </style>
+    <div class="wrapper">
+        <h1 id="textTv">JavaScript example!</h1>
+    </div>
+    <script>
+        setTimeout(() => {
+            var message = confirm('ARE YOU GENIUS?');
+            let text = document.getElementById('textTv');
+            message == true ? text.innerText = 'KRASAVA!' : text.innerText = 'NE NU TI INDEEC!';
+            if(message == false) {
+                var newPrompt = prompt('NU KTO TI TOGDA?');
+                console.log(newPrompt);
+            }
+            text.innerText(newPrompt)
+        }, 1000);
+    </script>
+</body>
+</html>

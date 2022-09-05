@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript example Message- alert, prompt, confirm</title>
+    </head>
+
+    <body>
+        <h1>JavaScript data output</h1>
+        <h2 id="text"></h2>
+        <!-- <a href="https://github.com/SvinDzjuba" id="linkExample"></a> -->
+        <script>
+            // 1
+            function firstExc() {
+                document.write('Hello world!');
+            }
+
+            // 2
+            function secondExc() {
+                alert('Hello JS!');
+            }
+
+            // 3
+            function thirdExc() {
+                var answer;
+                answer = prompt('Type your favourite number');
+                if(answer == null || answer == '') {
+                    document.getElementById('text').innerText = 'No number!';
+                } else {
+                    document.getElementById('text').innerText = 'Your favourite number is ' + answer;
+                }
+            }
+
+            // 4
+            function fourthExc() {
+                var userAnswer = confirm('Are you sure you want to go to the SvinDzjuba GitHub?');
+                if(userAnswer) {
+                    location.href = 'https://github.com/SvinDzjuba';
+                } else {
+                    document.getElementById('text').innerText = 'No problem, have a nice day!';
+                }
+            }
+
+
+            firstExc()
+            setTimeout(() => {
+                secondExc();
+                thirdExc();
+                setTimeout(() => {
+                    fourthExc();
+                }, 700);
+            }, 1200);
+
+        </script>
+    </body>
+
+</html>

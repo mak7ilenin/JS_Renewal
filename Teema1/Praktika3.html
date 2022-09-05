@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript loops</title>
+    </head>
+    <body>
+        <h1>Сумма натуральных чисел 1-N</h1>
+
+
+        <script>
+
+            document.write('<h2>Loop FOR</h2>');
+            let count = prompt('Сумма чисел от 1 до ....\n Введите число');
+            let summa = 0;
+            for (let i = 0; i <= count; i++) {
+                summa =+ i;
+                document.write('<br>' + (i) + ' Промежуточная сумма - ' + summa);
+            }
+            document.write('<br> FOR - Итого сумма чисел 1 - ' + count + ' равна ' + summa);
+            
+            document.write('<h2>Loop WHILE</h2>');
+            let counter = 1;
+            summa = 0;
+            while(counter <= count) {
+                summa += counter;
+                document.write('<br>' + (counter) + ' Промежуточная сумма -' + summa); 
+                counter++;
+            }
+            document.write('<br> WHILE - сумма чисел 1- ' + count + ' равна ' + summa);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Задание1</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        document.write('<h2>Пример вывода без цикла</h2>');
+        document.write('Число: <b>0</b>');
+        document.write('<br />');
+        document.write('Число: <b>10</b>');
+        document.write('<br />');
+        document.write('Число: <b>20</b>');
+        document.write('<br />');
+        document.write('Число: <b>40</b>');
+        document.write('<br />');
+        document.write('Число: <b>50</b>');
+        document.write('<br />');
+        document.write('Число: <b>60</b>');
+        document.write('<br />');
+        document.write('Число: <b>80</b>');
+        document.write('<br />');
+        document.write('Число: <b>100</b>');
+        document.write('<br />');
+
+        document.write('<hr />');
+        document.write('<h2>Пример вывода, используя цикл FOR </h2>');
+
+
+        //..............Решение
+        let number = 0;
+        for (let i = 0; i < 8; i++) {
+            i == 0 ? i = 0 : number += 10;
+            i == 3 ? number = 40 : '';
+            i == 6 ? number = 80 : '';
+            i == 7 ? number = 100 : '';
+            document.write('Число: <b>' + number + '</b> <br>')
+        }
+
+    </script>
+
+</body>
+
+</html>
