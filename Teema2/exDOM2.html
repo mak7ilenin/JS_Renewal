@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Counter</title>
+</head>
+<body>
+
+    <style>
+        main, header, footer {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            font-size: 26px;
+        }
+        #intro {
+            width: 500px;
+            min-height: 70px;
+            border-radius: 5px;
+            font-size: 24px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: ease all .15s;
+        }
+        input {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 300px;
+            height: 30px;
+            font-size: 18px;
+        }
+    </style>
+    
+    <header>
+        <h1>JS inner HTML - add text, counter</h1>
+    </header>
+
+    <main>
+        <p>DIV objects</p>
+
+        <div id="intro">Content by DIV be like</div>
+        <input id="content">
+        <p>Counter: <span id="counter">0</span></p>
+
+        <hr>
+
+        <button id="color" onclick="myColor()">Color</button>
+        <button id="text" onclick="myText()">Text</button>
+        <button id="counter" onclick="myCounter()">Counter</button>
+    </main>
+
+    <footer>
+        Dzjubenko 2022
+    </footer>
+
+    <script>
+        var counter = 0;
+        function myColor() {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+
+            document.getElementById('intro').style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')'
+        }
+        function myText() {
+            let userText = document.getElementById('content').value;
+            let divHtml = document.getElementById('intro');
+            let finalText = divHtml.innerText += ' ' + userText;
+
+            document.getElementById('intro').innerText = finalText + ' ';
+            document.getElementById('content').value = '';
+        }
+        let contentEntity = document.getElementById('content');
+        contentEntity.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') { 
+                e.preventDefault();
+                document.getElementById('text').click();
+            }
+        });
+        function myCounter() {
+            counter++;
+            document.getElementById('counter').innerText = counter;
+        }
+    </script>
+</body>
+</html>
