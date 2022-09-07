@@ -29,15 +29,15 @@ function getGroupCode() {
 
     let groupCode = document.getElementById('groupCode').value;
     
-    groupCode.substr(0, 1) === 'J' ? place += 'Johvi' : 'None';
-    groupCode.substr(0, 1) === 'S' ? place += 'Sillamae' : 'None';
-    groupCode.substr(0, 1) === 'N' ? place += 'Narva' : 'None';
+    groupCode.substr(0, 1) === 'J' ? place += 'Johvi' : place = 'Place of study: None';
+    groupCode.substr(0, 1) === 'S' ? place += 'Sillamae' : place = 'Place of study: None';
+    groupCode.substr(0, 1) === 'N' ? place += 'Narva' : place = 'Place of study: None';
     
-    groupCode.substr(1, 1) === 'P' ? base += 'Keskkool' : 'None';
-    groupCode.substr(1, 1) === 'K' ? base += 'Pohikool' : 'None';
+    groupCode.substr(1, 1) === 'P' ? base += 'Keskkool' : base = 'Training base: None';
+    groupCode.substr(1, 1) === 'K' ? base += 'Pohikool' : base = 'Training base: None';
     
-    groupCode.substr(4, 1) === 'R' ? language += 'Vene' : 'None';
-    groupCode.substr(4, 1) === 'E' ? language += 'Eesti' : 'None';
+    groupCode.substr(4, 1) === 'R' ? language += 'Vene' : language = 'Study language: None';
+    groupCode.substr(4, 1) === 'E' ? language += 'Eesti' : language = 'Study language: None';
 
     
     if(groupCode.substr(5, 1) === '2' && groupCode.substr(6, 1) === '0') {
