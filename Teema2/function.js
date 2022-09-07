@@ -5,6 +5,8 @@ let base = '';
 let language = '';
 let course = '';
 
+let groupCodeHtml = document.getElementById('groupCode');
+
 resultBtn.addEventListener('click', () => {
     let groupCode = document.getElementById('groupCode').value;
 
@@ -34,5 +36,11 @@ resultBtn.addEventListener('click', () => {
     const groupInfo = document.getElementsByTagName('li');
     for (let i = 0; i < groupInfo.length; i++) {
         groupInfo[i].innerText = allInfo[i]
+    }
+});
+
+groupCodeHtml.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        resultBtn.click();
     }
 });
