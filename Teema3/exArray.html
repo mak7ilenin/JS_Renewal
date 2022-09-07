@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Array Examples</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: rgb(44, 0, 0);
+        }
+        .showList {
+            animation: showList 1s ease-in-out;
+            position: relative;
+        }
+        .changeBody {
+            animation: changeBody 1s linear;
+            background-color: rgb(255, 235, 235)
+        }
+        @keyframes showList {
+            0% {
+                opacity: 0;
+                left: -100px;
+            }
+            100% {
+                opacity: 1;
+                left: 0px;
+            }
+        }
+        @keyframes changeBody {
+            0% {
+                background-color: rgb(44, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 235, 235);
+            }
+        }
+        .loader_container {
+            width: 750px;
+            left: calc((50vw - 50%) * -1);
+            top: calc((50vh - 50%) * -1);
+            transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+        }
+        .loader {
+            position: fixed;
+            width: 0;
+            height: 4.8px;
+            display: inline-block;
+            position: relative;
+            background: #FFF;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            animation: animFw 1.5s linear infinite;
+        }
+        .loader::after,
+        .loader::before {
+            content: '';
+            width: 10px;
+            height: 1px;
+            background: #FFF;
+            position: absolute;
+            top: 9px;
+            right: -2px;
+            opacity: 0;
+            transform: rotate(-45deg) translateX(0px);
+            box-sizing: border-box;
+            animation: coli1 0.3s linear infinite;
+        }
+        .loader::before {
+            top: -4px;
+            transform: rotate(45deg);
+            animation: coli2 0.3s linear infinite;
+        }
+
+        @keyframes animFw {
+            0% {
+             width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes coli1 {
+            0% {
+                transform: rotate(-45deg) translateX(0px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: rotate(-45deg) translateX(-45px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes coli2 {
+            0% {
+                transform: rotate(45deg) translateX(0px);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translateX(-45px);
+                opacity: 0.7;
+            }
+        }
+  
+    </style>
+
+    <div class="loader_container">
+        <span class="loader"></span>
+    </div>
+    <ul id="main_list"></ul>
+
+    <script>
+        document.querySelector('.loader').style.display = 'flex';
+        let usersJSON = null;
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=200')
+            .then(response => response.json())
+            .then(json => usersJSON = json);
+        setTimeout(() => {
+            let data = (usersJSON.map(data => data.title));
+            for (let i = 0; i < data.length; i++) {
+                var list = document.createElement('li');
+                list.innerHTML = data[i];
+                document.getElementById('main_list').appendChild(list);
+                list.classList.add('showList');
+                document.querySelector('body').classList.add('changeBody');
+                document.querySelector('.loader').style.display = 'none'
+            }
+        }, 1500);
+
+
+    </script>
+</body>
+
+</html>
