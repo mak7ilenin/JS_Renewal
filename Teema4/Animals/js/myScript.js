@@ -1,16 +1,30 @@
 $(document).ready(function() {
-    console.log(category)
-    console.log(animals)
     for (let i = 0; i < category.length; i++) {
-        var li = document.createElement('li');
+        let li = document.createElement('li');
         li.innerHTML = ('<a href="#" onClick="myContent(`' + category[i] + '`)" >' + category[i] + '</a>');
-        document.getElementById('menu').appendChild(li);
+        $('#menu').append(li);
     }
 });
 function myContent(val) {
-    let heading = '<h2>' + val + '</h2>';
     let text = '';
+    let categories = animals.filter(animal => animal.classname === val);
+    $('#content').html('');
 
-    let newAnimals = animals.filter(animal => animal.classname === val);
-    console.log(newAnimals.length);
+    if(categories.length > 0) {
+        text += '<hr> <h2>' + val + '</h2>';
+        for (let i = 0; i < categories.length; i++) {
+            text += '<div class="animal"><h3><b>' + categories[i].name + '</b></h3>';
+            text += '<div class="img_container"><img src="images/' + categories[i].image + '" alt="' + categories[i].name + '"></div>';
+            text += '<div class="text_container"><p>' + categories[i].description + '</p></div></div>'
+        }
+    }
+
+    if(categories.length <= 0) {
+        text += '<hr> <h2>Вид "' + val + '" отсутствует!</h2>';
+    }
+
+    let animalInfo = document.createElement('div');
+    animalInfo.classList.add('animals');
+    animalInfo.innerHTML = text;
+    $('#content').append(animalInfo);
 }
