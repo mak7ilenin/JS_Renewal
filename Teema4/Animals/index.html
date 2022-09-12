@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="js/myScript.js" defer></script>
+    <script src="js/massiv.js"></script>
+
+    <title>Animals</title>
+</head>
+
+<body>
+    <style>
+        li {
+            list-style-type: none;
+            margin: 10px;
+        }
+        a {
+            color: black;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        main {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .left {
+            width: 25%;
+        }
+        .right {
+            width: 70%;
+            min-height: 500px;
+        }
+    </style>
+    <main>
+        <div class="left">
+            <h2>Choose category</h2>
+            <ul id="menu"></ul>
+        </div>
+    
+        <div class="right" id="content">
+            <img src="images/animals.jpg">
+        </div>
+    </main>
+
+</body>
+
+</html>
