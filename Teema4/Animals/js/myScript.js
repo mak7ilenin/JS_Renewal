@@ -3,7 +3,7 @@ $(document).ready(function() {
     console.log(animals)
     for (let i = 0; i < category.length; i++) {
         var li = document.createElement('li');
-        li.innerHTML = ('<a href="#" onClick="myContent(´' + category[i] + '´)" >' + category[i] + '</a>');
+        li.innerHTML = ('<a href="#" onClick="myContent(`' + category[i] + '`)" >' + category[i] + '</a>');
         document.getElementById('menu').appendChild(li);
     }
 });
