@@ -1,0 +1,99 @@
+header {
+    height: 80px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(157, 182, 88);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+main {
+    width: 80%;
+    margin: 0 auto;
+    z-index: 0;
+    position: relative;
+    top: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
+li {
+    list-style-type: georgian;
+    margin: 10px;
+}
+ul {
+    width: 100%;
+    margin-left: 45px;
+}
+a {
+    color: black;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+.left {
+    width: 35%;
+    margin-top: 90px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.right {
+    width: 60%;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 500px;
+}
+.center {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.animals {
+    width: 100%;
+}
+.animal {
+    width: 60%;
+    min-height: 170px;
+    background-color: rgb(169, 180, 145);
+    border-radius: 5px;
+    margin: 35px auto;
+    padding: 25px;
+    position: relative;
+    top: 0;
+}
+.animal h3 {
+    width: 75%;
+    font-size: 26px;
+}
+.text_container p {
+    font-size: 22px;
+}
+.animal .img_container {
+    height: 100%;
+    margin: 10px;
+    position: absolute;
+    top: 22px;
+    right: 0;
+}
+.img_container img {
+    height: 75%;
+    border-radius: 5px;
+}
+.animal .text_container {
+    width: 78%;
+}
