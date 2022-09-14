@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 main {
     width: 75%;
     margin: 0 auto;
@@ -6,7 +9,7 @@ main {
 }
 footer {
     height: 70px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -24,6 +27,7 @@ footer {
 #content {
     width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 ul li {
     width: 20px;
@@ -40,4 +44,11 @@ ul li {
 ul li:hover {
     background-size: 100% 2px;
     transform: scale(1.02)
+}
+.img_container {
+    width: 700px;
+}
+.img_container img {
+    width: 100%;
+    object-fit: cover;
 }
