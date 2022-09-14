@@ -1,19 +1,19 @@
 $(document).ready(function() {
+    // Load agents after the page load
     showAgents(agents);
-    // $('.agent').animate({opacity: 1, top: 0}, 700);
-    
-
     function checkPosition() {
         let elements = $('.agent');
         let windowHeight = window.innerHeight;
         for (var i = 0; i < elements.length; i++) {
             let element = elements[i];
             let positionFromTop = elements[i].getBoundingClientRect().top;
-            console.log();
         
             if(positionFromTop - windowHeight <= 0) {
                 element.classList.remove('hidden');
                 element.classList.add('fade-in-element');
+                // setTimeout(() => {
+                //     element.classList.remove('fade-in-element');
+                // }, 1300);
             }
         }
     }
@@ -44,7 +44,6 @@ function showAgents(agents) {
     for (let i = 0; i < agents.length; i++) {
         agent += '<div class="agent">'
             agent += '<div class="decoration_line1"></div>'
-            agent += '<div class="decoration_line2"></div>'
             agent += '<div class="img_container">'
                 agent += '<img src="images/' + agents[i].picture + '" alt="' + agents[i].name + '" />'
             agent += '</div>';

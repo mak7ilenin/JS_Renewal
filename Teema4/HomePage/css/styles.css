@@ -89,24 +89,36 @@ ul li:hover {
     max-width: 900px;
     margin: 45px auto;
     overflow: hidden;
+    position: relative;
     
     /* background-color: rgb(255, 70, 85); */
-    background-image: linear-gradient(to right, rgb(255, 70, 85), rgba(48, 63, 129, 0.288));
+    background-image: linear-gradient(to right, rgb(255, 70, 86), rgba(48, 63, 129, 0.733));
     color: #fff;
     box-shadow: 0 0 50px 0px rgb(116, 34, 34);
 }
 .decoration_line1 {
     position: absolute;
     left: 0;
-    bottom: 100px;
+    bottom: 0;
     z-index: 10;
     width: 0;
     height: 0;
     border-bottom: 900px solid rgb(255, 70, 85);
     border-left: 529px solid transparent;
-    border-image-source: linear-gradient(to left, rgba(255, 255, 255, 0.288), rgb(255, 5, 5));
-    transform: rotate(40deg) scale(1.5) translateX(-50%);
-    filter: blur(50px)
+    border-image-source: linear-gradient(to left, rgba(156, 0, 0, 0.288), rgb(255, 5, 5));
+    filter: blur(550px);
+    animation: agent-animation 6s infinite;
+}
+@keyframes agent-animation {
+    0% { 
+        transform: rotate(40deg) scale(1.5) translateX(100%);
+    }
+    50% {
+        transform: rotate(350deg) scale(0.4) translateX(360%);
+    }
+    100% { 
+        transform: rotate(40deg) scale(1.5) translateX(100%);
+    }
 }
 .info_container {
     padding: 25px;
