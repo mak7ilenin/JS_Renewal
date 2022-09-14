@@ -14,8 +14,8 @@ function myContent(val) {
         text += '<hr> <h2>' + val + '</h2>';
         for (let i = 0; i < categories.length; i++) {
             text += '<div class="animal"><h3><b>' + categories[i].name + '</b></h3>';
-            text += '<div class="img_container"><img src="images/' + categories[i].image + '" alt="' + categories[i].name + '"></div>';
-            text += '<div class="text_container"><p>' + categories[i].description + '</p></div></div>'
+            text += '<div class="text_container"><p>' + categories[i].description + '</p></div>'
+            text += '<div class="img_container"><img src="images/' + categories[i].image + '" alt="' + categories[i].name + '"></div></div>';
         }
     }
 

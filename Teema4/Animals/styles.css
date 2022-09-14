@@ -75,25 +75,27 @@ a {
     padding: 25px;
     position: relative;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .animal h3 {
-    width: 75%;
+    width: 100%;
+    margin: 0;
     font-size: 26px;
 }
 .text_container p {
     font-size: 22px;
 }
 .animal .img_container {
-    height: 100%;
+    width: 20%;
     margin: 10px;
-    position: absolute;
-    top: 22px;
-    right: 0;
 }
 .img_container img {
-    height: 75%;
+    /* height: 75%; */
     border-radius: 5px;
 }
 .animal .text_container {
-    width: 78%;
+    width: 75%;
 }
