@@ -1,5 +1,24 @@
 $(document).ready(function() {
-    showAgents(agents)
+    showAgents(agents);
+    // $('.agent').animate({opacity: 1, top: 0}, 700);
+    
+
+    function checkPosition() {
+        let elements = $('.agent');
+        let windowHeight = window.innerHeight;
+        for (var i = 0; i < elements.length; i++) {
+            let element = elements[i];
+            let positionFromTop = elements[i].getBoundingClientRect().top;
+            console.log();
+        
+            if(positionFromTop - windowHeight <= 0) {
+                element.classList.remove('hidden');
+                element.classList.add('fade-in-element');
+            }
+        }
+    }
+    window.addEventListener('scroll', checkPosition);
+    checkPosition();
 });
 
 // Categories output

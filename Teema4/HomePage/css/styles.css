@@ -86,8 +86,8 @@ ul li:hover {
 }
 .agent {
     width: 75%;
+    max-width: 900px;
     margin: 45px auto;
-    position: relative;
     overflow: hidden;
     
     /* background-color: rgb(255, 70, 85); */
@@ -119,8 +119,11 @@ ul li:hover {
     font-size: 22px;
 }
 h3 {
-    font-size: 46px;
-    margin: 25px;
+    width: 50%;
+    font-size: 38px;
+    margin: 25px auto;
+    text-align: center;
+    border-bottom: 1px solid;
 }
 h4 {
     width: 20%;
@@ -131,4 +134,21 @@ h4 {
 .info_container h3, .info_container h4 {
     font-family: 'VALORANT', sans-serif;
     letter-spacing: 1px;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0; 
+        transform: translateY(-25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.fade-in-element {
+    animation: fade-in 1.4s;
+}
+.hidden {
+    opacity: 0;
 }
