@@ -34,6 +34,7 @@ function showAgents(agents) {
 function chooseCategory(category) {
     let filteredAgents = agents.filter(agent => agent.role === category);
     showAgents(filteredAgents)
+    checkPosition();
 }
 
 $(document).ready(function() {
@@ -68,11 +69,13 @@ $(document).ready(function() {
 
     // Categories output
     let list = document.createElement('ul');
+    let logo = '<div class="logo_container"><img src="images/components/riot-logo.png"></div>';
     for (let i = 0; i < categories.length; i++) {
         let category = document.createElement('li');
-        category.innerHTML = '<a href="#" onClick="chooseCategory(`' + categories[i] + '`)" >' + categories[i] + '</a>';
+        category.innerHTML += '<a href="#" onClick="chooseCategory(`' + categories[i] + '`)" >' + categories[i] + '</a>';
         list.appendChild(category);
     }
+    $('header').append(logo);
     $('header').append(list);
 
 });
