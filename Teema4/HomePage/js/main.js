@@ -32,34 +32,53 @@ function showAgents(agents) {
 
 // Show agents by this role
 function chooseCategory(category) {
+    $('footer').show();
     let filteredAgents = agents.filter(agent => agent.role === category);
     showAgents(filteredAgents)
     checkPosition();
+    $('.ability_container').click(function() {
+        $(this).next().slideToggle(400, 'swing');
+        const prev = $(this).prev();
+        const arrow = prev.prev().next().next().children().children();
+        arrow.toggleClass('arrow-up');
+    });
+}
+
+// Check every agent container position to animate
+function checkPosition() {
+    let elements = $('.agent');
+    let windowHeight = window.innerHeight;
+    for (var i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        let positionFromTop = elements[i].getBoundingClientRect().top;
+        
+        if(positionFromTop - windowHeight <= 0) {
+            element.classList.remove('hidden');
+            element.classList.add('fade-in-element');
+        }
+    }
+}
+$(window).scroll(checkPosition);
+checkPosition();
+
+function mainPage() {
+    let content = '';
+    content += '<div class="main_heading"><div class="main_img"><img src="images/components/valorant-logo.png"></div><h1>Valorant</h1></div>';
+    content += '<div class="main_text"><p>Valorant (stylized as VALORANT) is a free-to-play first-person hero shooter developed and published by Riot Games, for Microsoft Windows. First teased under the codename Project A in October 2019, the game began a closed beta period with limited access on April 7, 2020, followed by an official release on June 2, 2020. The development of the game started in 2014. Valorant takes inspiration from the Counter-Strike series of tactical shooters, borrowing several mechanics such as the buy menu, spray patterns, and inaccuracy while moving.</p></div>';
+    content += '<div class="about_agents">'
+        content += '<img src="images/VALORANT-Agents-thumbnail.jpg">'
+        content += '<p>There are a large variety of playable agents available in the game. Agents are divided into 4 roles: Duelists, Sentinels, Initiators, and Controllers. Each agent has a different role which indicates how the agent is usually played.</p>'
+    content += '</div>';
+    $('#content').html(content);
+    $('footer').hide();
 }
 
 $(document).ready(function() {
     // Load agents after the page load
     showAgents(agents);
-    
-    // Check every agent container position to animate
-    function checkPosition() {
-        let elements = $('.agent');
-        let windowHeight = window.innerHeight;
-        for (var i = 0; i < elements.length; i++) {
-            let element = elements[i];
-            let positionFromTop = elements[i].getBoundingClientRect().top;
-            
-            if(positionFromTop - windowHeight <= 0) {
-                element.classList.remove('hidden');
-                element.classList.add('fade-in-element');
-            }
-        }
-    }
-    window.addEventListener('scroll', checkPosition);
     checkPosition();
 
     // Abilities dropdown
-    $('.abilities_container').slideUp(10);
     $('.ability_container').click(function() {
         $(this).next().slideToggle(400, 'swing');
         const prev = $(this).prev();
@@ -69,13 +88,17 @@ $(document).ready(function() {
 
     // Categories output
     let list = document.createElement('ul');
-    let logo = '<div class="logo_container"><img src="images/components/riot-logo.png"></div>';
+    let linksList = document.createElement('ul');
+    let logo = '<a onclick="mainPage()" class="logo_container"><img src="images/components/white-riot-logo.png"></a>';
     for (let i = 0; i < categories.length; i++) {
         let category = document.createElement('li');
-        category.innerHTML += '<a href="#" onClick="chooseCategory(`' + categories[i] + '`)" >' + categories[i] + '</a>';
-        list.appendChild(category);
+        let links = document.createElement('li');
+        let linksString = '<a href="#" onClick="chooseCategory(`' + categories[i] + '`)" >' + categories[i] + '</a>';
+        category.innerHTML += linksString;
+        links.innerHTML += linksString;
+        list.append(category);
+        linksList.append(links);
     }
-    $('header').append(logo);
-    $('header').append(list);
-
+    $('header').append(logo, list);
+    $('.links').append(linksList);
 });
